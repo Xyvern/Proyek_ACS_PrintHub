@@ -134,5 +134,33 @@ namespace ProyekACS
             refreshDGV();
             clearForm();
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            MenuMaster m = new MenuMaster(username);
+            this.Hide();
+            m.ShowDialog();
+        }
+
+        private void btnAddon_Click(object sender, EventArgs e)
+        {
+            MenuMasterAddon m = new MenuMasterAddon(username);
+            this.Hide();
+            m.ShowDialog();
+        }
+
+        private void btnLayanan_Click(object sender, EventArgs e)
+        {
+            MenuMasterLayanan m = new MenuMasterLayanan(username);
+            this.Hide();
+            m.ShowDialog();
+        }
+
+        private void btnKaryawan_Click(object sender, EventArgs e)
+        {
+            MenuMasterKaryawan m = new MenuMasterKaryawan(username);
+            this.Hide();
+            m.ShowDialog();
+        }
     }
 }

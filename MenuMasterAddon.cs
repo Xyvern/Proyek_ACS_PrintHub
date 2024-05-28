@@ -154,5 +154,19 @@ namespace ProyekACS
             this.Hide();
             m.ShowDialog();
         }
+
+        private void btnKategori_Click(object sender, EventArgs e)
+        {
+            MenuMasterKategori m = new MenuMasterKategori(username);
+            this.Hide();
+            m.ShowDialog();
+        }
+
+        private void btnKaryawan_Click(object sender, EventArgs e)
+        {
+            MenuMasterKaryawan m = new MenuMasterKaryawan(username);
+            this.Hide();
+            m.ShowDialog();
+        }
     }
 }

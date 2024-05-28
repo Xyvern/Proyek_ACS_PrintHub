@@ -57,10 +57,12 @@
             this.btnKaryawan.TabIndex = 104;
             this.btnKaryawan.Text = "KARYAWAN";
             this.btnKaryawan.UseVisualStyleBackColor = true;
+            this.btnKaryawan.Click += new System.EventHandler(this.btnKaryawan_Click);
             // 
             // btnKategori
             // 
             this.btnKategori.BackColor = System.Drawing.Color.LightGreen;
+            this.btnKategori.Enabled = false;
             this.btnKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKategori.Location = new System.Drawing.Point(12, 210);
             this.btnKategori.Name = "btnKategori";
@@ -79,6 +81,7 @@
             this.btnLayanan.TabIndex = 102;
             this.btnLayanan.Text = "LAYANAN";
             this.btnLayanan.UseVisualStyleBackColor = false;
+            this.btnLayanan.Click += new System.EventHandler(this.btnLayanan_Click);
             // 
             // btnAddon
             // 
@@ -90,11 +93,11 @@
             this.btnAddon.TabIndex = 101;
             this.btnAddon.Text = "ADD ON";
             this.btnAddon.UseVisualStyleBackColor = false;
+            this.btnAddon.Click += new System.EventHandler(this.btnAddon_Click);
             // 
             // btnCustomer
             // 
             this.btnCustomer.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCustomer.Enabled = false;
             this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomer.Location = new System.Drawing.Point(12, 75);
             this.btnCustomer.Name = "btnCustomer";
@@ -102,6 +105,7 @@
             this.btnCustomer.TabIndex = 100;
             this.btnCustomer.Text = "CUSTOMER";
             this.btnCustomer.UseVisualStyleBackColor = false;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnSave
             // 
@@ -169,7 +173,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(243, 75);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(318, 20);
+            this.txtSearch.Size = new System.Drawing.Size(384, 20);
             this.txtSearch.TabIndex = 90;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 

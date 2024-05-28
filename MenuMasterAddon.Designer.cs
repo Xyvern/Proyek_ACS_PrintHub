@@ -62,6 +62,7 @@
             this.btnKaryawan.TabIndex = 59;
             this.btnKaryawan.Text = "KARYAWAN";
             this.btnKaryawan.UseVisualStyleBackColor = true;
+            this.btnKaryawan.Click += new System.EventHandler(this.btnKaryawan_Click);
             // 
             // btnKategori
             // 
@@ -72,6 +73,7 @@
             this.btnKategori.TabIndex = 58;
             this.btnKategori.Text = "KATEGORI";
             this.btnKategori.UseVisualStyleBackColor = true;
+            this.btnKategori.Click += new System.EventHandler(this.btnKategori_Click);
             // 
             // btnLayanan
             // 
@@ -87,6 +89,7 @@
             // btnAddon
             // 
             this.btnAddon.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAddon.Enabled = false;
             this.btnAddon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddon.Location = new System.Drawing.Point(12, 120);
             this.btnAddon.Name = "btnAddon";
@@ -98,7 +101,6 @@
             // btnCustomer
             // 
             this.btnCustomer.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCustomer.Enabled = false;
             this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomer.Location = new System.Drawing.Point(12, 75);
             this.btnCustomer.Name = "btnCustomer";
@@ -194,7 +196,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(243, 75);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(318, 20);
+            this.txtSearch.Size = new System.Drawing.Size(384, 20);
             this.txtSearch.TabIndex = 42;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 

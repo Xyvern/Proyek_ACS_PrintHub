@@ -201,7 +201,9 @@ namespace ProyekACS
 
         private void btnKaryawan_Click(object sender, EventArgs e)
         {
-
+            MenuMasterKaryawan m = new MenuMasterKaryawan(username);
+            this.Hide();
+            m.ShowDialog();
         }
     }
 }
