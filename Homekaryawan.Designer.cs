@@ -28,27 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtWelcome = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.dgvNota = new System.Windows.Forms.DataGridView();
+            this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.dgvAddon = new System.Windows.Forms.DataGridView();
+            this.txtNota = new System.Windows.Forms.Label();
+            this.txtSubtotal = new System.Windows.Forms.Label();
+            this.txtAddons = new System.Windows.Forms.Label();
+            this.txtGrandtotal = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // txtWelcome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Welcome, {nama}!";
+            this.txtWelcome.AutoSize = true;
+            this.txtWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWelcome.Location = new System.Drawing.Point(12, 9);
+            this.txtWelcome.Name = "txtWelcome";
+            this.txtWelcome.Size = new System.Drawing.Size(134, 16);
+            this.txtWelcome.TabIndex = 1;
+            this.txtWelcome.Text = "Welcome, {nama}!";
             // 
             // btnLogout
             // 
@@ -60,6 +65,7 @@
             this.btnLogout.TabIndex = 10;
             this.btnLogout.Text = "LOG OUT";
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // button1
             // 
@@ -76,6 +82,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(627, 12);
             this.button2.Name = "button2";
@@ -84,49 +91,111 @@
             this.button2.Text = "TRANSAKSI";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvNota
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(157, 451);
-            this.dataGridView1.TabIndex = 13;
+            this.dgvNota.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNota.Location = new System.Drawing.Point(15, 74);
+            this.dgvNota.Name = "dgvNota";
+            this.dgvNota.Size = new System.Drawing.Size(157, 451);
+            this.dgvNota.TabIndex = 13;
+            this.dgvNota.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNota_CellClick);
             // 
-            // dataGridView2
+            // dgvDetail
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(178, 74);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(386, 451);
-            this.dataGridView2.TabIndex = 14;
+            this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetail.Location = new System.Drawing.Point(178, 74);
+            this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.Size = new System.Drawing.Size(386, 302);
+            this.dgvDetail.TabIndex = 14;
+            this.dgvDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellClick);
             // 
-            // dataGridView3
+            // dgvAddon
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(570, 74);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(240, 451);
-            this.dataGridView3.TabIndex = 15;
+            this.dgvAddon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAddon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAddon.Location = new System.Drawing.Point(178, 382);
+            this.dgvAddon.Name = "dgvAddon";
+            this.dgvAddon.Size = new System.Drawing.Size(386, 143);
+            this.dgvAddon.TabIndex = 15;
+            // 
+            // txtNota
+            // 
+            this.txtNota.AutoSize = true;
+            this.txtNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNota.Location = new System.Drawing.Point(570, 74);
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(181, 31);
+            this.txtNota.TabIndex = 16;
+            this.txtNota.Text = "Nomor Urut: ";
+            // 
+            // txtSubtotal
+            // 
+            this.txtSubtotal.AutoSize = true;
+            this.txtSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubtotal.Location = new System.Drawing.Point(572, 160);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(142, 20);
+            this.txtSubtotal.TabIndex = 17;
+            this.txtSubtotal.Text = "Subtotal Layanan: ";
+            // 
+            // txtAddons
+            // 
+            this.txtAddons.AutoSize = true;
+            this.txtAddons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddons.Location = new System.Drawing.Point(572, 213);
+            this.txtAddons.Name = "txtAddons";
+            this.txtAddons.Size = new System.Drawing.Size(143, 20);
+            this.txtAddons.TabIndex = 18;
+            this.txtAddons.Text = "Subtotal Add Ons: ";
+            // 
+            // txtGrandtotal
+            // 
+            this.txtGrandtotal.AutoSize = true;
+            this.txtGrandtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrandtotal.Location = new System.Drawing.Point(572, 356);
+            this.txtGrandtotal.Name = "txtGrandtotal";
+            this.txtGrandtotal.Size = new System.Drawing.Size(105, 20);
+            this.txtGrandtotal.TabIndex = 19;
+            this.txtGrandtotal.Text = "Grandtotal: ";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightGreen;
+            this.button3.Enabled = false;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(576, 432);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(420, 44);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "ACCEPT TRANSACTION";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // Homekaryawan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 537);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.txtGrandtotal);
+            this.Controls.Add(this.txtAddons);
+            this.Controls.Add(this.txtSubtotal);
+            this.Controls.Add(this.txtNota);
+            this.Controls.Add(this.dgvAddon);
+            this.Controls.Add(this.dgvDetail);
+            this.Controls.Add(this.dgvNota);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtWelcome);
             this.Name = "Homekaryawan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Homekaryawan";
             this.Load += new System.EventHandler(this.Homekaryawan_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,12 +203,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtWelcome;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvNota;
+        private System.Windows.Forms.DataGridView dgvDetail;
+        private System.Windows.Forms.DataGridView dgvAddon;
+        private System.Windows.Forms.Label txtNota;
+        private System.Windows.Forms.Label txtSubtotal;
+        private System.Windows.Forms.Label txtAddons;
+        private System.Windows.Forms.Label txtGrandtotal;
+        private System.Windows.Forms.Button button3;
     }
 }
