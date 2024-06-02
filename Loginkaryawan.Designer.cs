@@ -86,11 +86,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(427, 143);
+            this.label1.Location = new System.Drawing.Point(321, 143);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 42);
+            this.label1.Size = new System.Drawing.Size(371, 42);
             this.label1.TabIndex = 15;
-            this.label1.Text = "LOGIN";
+            this.label1.Text = "LOGIN KARYAWAN";
             // 
             // btnswitch
             // 

@@ -39,7 +39,11 @@
             this.txtSubtotal = new System.Windows.Forms.Label();
             this.txtAddons = new System.Windows.Forms.Label();
             this.txtGrandtotal = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).BeginInit();
@@ -93,30 +97,39 @@
             // 
             // dgvNota
             // 
+            this.dgvNota.AllowUserToAddRows = false;
+            this.dgvNota.AllowUserToDeleteRows = false;
             this.dgvNota.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNota.Location = new System.Drawing.Point(15, 74);
+            this.dgvNota.Location = new System.Drawing.Point(15, 93);
             this.dgvNota.Name = "dgvNota";
-            this.dgvNota.Size = new System.Drawing.Size(157, 451);
+            this.dgvNota.ReadOnly = true;
+            this.dgvNota.Size = new System.Drawing.Size(157, 432);
             this.dgvNota.TabIndex = 13;
             this.dgvNota.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNota_CellClick);
             // 
             // dgvDetail
             // 
+            this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetail.Location = new System.Drawing.Point(178, 74);
+            this.dgvDetail.Location = new System.Drawing.Point(178, 93);
             this.dgvDetail.Name = "dgvDetail";
-            this.dgvDetail.Size = new System.Drawing.Size(386, 302);
+            this.dgvDetail.ReadOnly = true;
+            this.dgvDetail.Size = new System.Drawing.Size(386, 267);
             this.dgvDetail.TabIndex = 14;
             this.dgvDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellClick);
             // 
             // dgvAddon
             // 
+            this.dgvAddon.AllowUserToAddRows = false;
+            this.dgvAddon.AllowUserToDeleteRows = false;
             this.dgvAddon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAddon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAddon.Location = new System.Drawing.Point(178, 382);
             this.dgvAddon.Name = "dgvAddon";
+            this.dgvAddon.ReadOnly = true;
             this.dgvAddon.Size = new System.Drawing.Size(386, 143);
             this.dgvAddon.TabIndex = 15;
             // 
@@ -160,24 +173,71 @@
             this.txtGrandtotal.TabIndex = 19;
             this.txtGrandtotal.Text = "Grandtotal: ";
             // 
-            // button3
+            // btnAccept
             // 
-            this.button3.BackColor = System.Drawing.Color.LightGreen;
-            this.button3.Enabled = false;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(576, 432);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(420, 44);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "ACCEPT TRANSACTION";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAccept.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAccept.Enabled = false;
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Location = new System.Drawing.Point(576, 432);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(420, 44);
+            this.btnAccept.TabIndex = 20;
+            this.btnAccept.Text = "ACCEPT TRANSACTION";
+            this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 16);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Antrian";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(175, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Detail Pesanan";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(178, 363);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 16);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Detail Add Ons Layanan";
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.Location = new System.Drawing.Point(502, 12);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(119, 44);
+            this.btnHistory.TabIndex = 24;
+            this.btnHistory.Text = "HISTORY";
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
             // Homekaryawan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 537);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnHistory);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.txtGrandtotal);
             this.Controls.Add(this.txtAddons);
             this.Controls.Add(this.txtSubtotal);
@@ -214,6 +274,10 @@
         private System.Windows.Forms.Label txtSubtotal;
         private System.Windows.Forms.Label txtAddons;
         private System.Windows.Forms.Label txtGrandtotal;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnHistory;
     }
 }

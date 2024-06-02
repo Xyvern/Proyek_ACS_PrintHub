@@ -71,6 +71,7 @@
             this.linkLabel1.TabIndex = 33;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Register here.";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // btnLogin
             // 
@@ -81,11 +82,13 @@
             this.btnLogin.TabIndex = 32;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // passLogin
             // 
             this.passLogin.Location = new System.Drawing.Point(434, 292);
             this.passLogin.Name = "passLogin";
+            this.passLogin.PasswordChar = '*';
             this.passLogin.Size = new System.Drawing.Size(238, 20);
             this.passLogin.TabIndex = 31;
             // 

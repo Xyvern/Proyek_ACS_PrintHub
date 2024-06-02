@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtWelcome = new System.Windows.Forms.Label();
             this.dgvLayanan = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAddons = new System.Windows.Forms.DataGridView();
             this.txtDeskripsi = new System.Windows.Forms.TextBox();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dgvAddon = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cbKategori = new System.Windows.Forms.ComboBox();
+            this.txtTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLayanan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddons)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // txtWelcome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome, {nama}!";
+            this.txtWelcome.AutoSize = true;
+            this.txtWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWelcome.Location = new System.Drawing.Point(12, 9);
+            this.txtWelcome.Name = "txtWelcome";
+            this.txtWelcome.Size = new System.Drawing.Size(134, 16);
+            this.txtWelcome.TabIndex = 0;
+            this.txtWelcome.Text = "Welcome, {nama}!";
             // 
             // dgvLayanan
             // 
+            this.dgvLayanan.AllowUserToAddRows = false;
+            this.dgvLayanan.AllowUserToDeleteRows = false;
             this.dgvLayanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLayanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLayanan.Location = new System.Drawing.Point(484, 87);
             this.dgvLayanan.Name = "dgvLayanan";
+            this.dgvLayanan.ReadOnly = true;
             this.dgvLayanan.Size = new System.Drawing.Size(512, 272);
             this.dgvLayanan.TabIndex = 1;
             this.dgvLayanan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLayanan_CellClick);
@@ -92,12 +92,16 @@
             // 
             // dgvCart
             // 
+            this.dgvCart.AllowUserToAddRows = false;
+            this.dgvCart.AllowUserToDeleteRows = false;
             this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Location = new System.Drawing.Point(15, 59);
             this.dgvCart.Name = "dgvCart";
+            this.dgvCart.ReadOnly = true;
             this.dgvCart.Size = new System.Drawing.Size(463, 300);
             this.dgvCart.TabIndex = 4;
+            this.dgvCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellClick);
             // 
             // label4
             // 
@@ -109,33 +113,37 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Addons yang dipilih";
             // 
-            // dataGridView1
+            // dgvAddons
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 381);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(463, 144);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvAddons.AllowUserToAddRows = false;
+            this.dgvAddons.AllowUserToDeleteRows = false;
+            this.dgvAddons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAddons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAddons.Location = new System.Drawing.Point(15, 381);
+            this.dgvAddons.Name = "dgvAddons";
+            this.dgvAddons.ReadOnly = true;
+            this.dgvAddons.Size = new System.Drawing.Size(382, 144);
+            this.dgvAddons.TabIndex = 6;
             // 
             // txtDeskripsi
             // 
             this.txtDeskripsi.Enabled = false;
-            this.txtDeskripsi.Location = new System.Drawing.Point(791, 381);
+            this.txtDeskripsi.Location = new System.Drawing.Point(403, 381);
             this.txtDeskripsi.Multiline = true;
             this.txtDeskripsi.Name = "txtDeskripsi";
-            this.txtDeskripsi.Size = new System.Drawing.Size(205, 49);
+            this.txtDeskripsi.Size = new System.Drawing.Size(337, 144);
             this.txtDeskripsi.TabIndex = 7;
             // 
             // btnCheckout
             // 
             this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.Location = new System.Drawing.Point(791, 476);
+            this.btnCheckout.Location = new System.Drawing.Point(751, 476);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(205, 49);
+            this.btnCheckout.Size = new System.Drawing.Size(245, 49);
             this.btnCheckout.TabIndex = 8;
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnLogout
             // 
@@ -149,82 +157,60 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(484, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 22);
-            this.textBox1.TabIndex = 10;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(484, 59);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(324, 22);
+            this.txtSearch.TabIndex = 10;
+            this.txtSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // comboBox1
+            // cbKategori
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(672, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 23);
-            this.comboBox1.TabIndex = 11;
+            this.cbKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKategori.FormattingEnabled = true;
+            this.cbKategori.Location = new System.Drawing.Point(814, 58);
+            this.cbKategori.Name = "cbKategori";
+            this.cbKategori.Size = new System.Drawing.Size(182, 23);
+            this.cbKategori.TabIndex = 11;
+            this.cbKategori.SelectionChangeCommitted += new System.EventHandler(this.cbKategori_SelectionChangeCommitted);
             // 
-            // label5
+            // txtTotal
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(481, 362);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 16);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Addons";
-            // 
-            // dgvAddon
-            // 
-            this.dgvAddon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAddon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAddon.Location = new System.Drawing.Point(484, 381);
-            this.dgvAddon.Name = "dgvAddon";
-            this.dgvAddon.Size = new System.Drawing.Size(301, 144);
-            this.dgvAddon.TabIndex = 13;
-            this.dgvAddon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAddon_CellClick);
-            this.dgvAddon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAddon_CellContentClick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(791, 440);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 25);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Total: ";
+            this.txtTotal.AutoSize = true;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(746, 381);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(115, 25);
+            this.txtTotal.TabIndex = 14;
+            this.txtTotal.Text = "Total: Rp.";
             // 
             // Homeuser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 537);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.dgvAddon);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.cbKategori);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.txtDeskripsi);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAddons);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvLayanan);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtWelcome);
             this.Name = "Homeuser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Homeuser";
             this.Load += new System.EventHandler(this.Homeuser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLayanan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddons)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,20 +218,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtWelcome;
         private System.Windows.Forms.DataGridView dgvLayanan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAddons;
         private System.Windows.Forms.TextBox txtDeskripsi;
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvAddon;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.ComboBox cbKategori;
+        private System.Windows.Forms.Label txtTotal;
     }
 }

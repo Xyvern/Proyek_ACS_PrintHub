@@ -25,11 +25,18 @@ namespace ProyekACS
             DB db = new DB();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnswitch_Click(object sender, EventArgs e)
+        {
+            Loginkaryawan l = new Loginkaryawan();
+            this.Hide();
+            l.ShowDialog();
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             string username = userLogin.Text;
             string password = passLogin.Text;
-            SqlCommand cmd = new SqlCommand("SELECT * from Customer where username = @username", DB.conn);
+            SqlCommand cmd = new SqlCommand("SELECT * from Customer where username = @username and status = 1", DB.conn);
             cmd.Parameters.AddWithValue("@username", username);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable loggedIn = new DataTable();
@@ -51,13 +58,6 @@ namespace ProyekACS
                     MessageBox.Show("Password salah");
                 }
             }
-        }
-
-        private void btnswitch_Click(object sender, EventArgs e)
-        {
-            Loginkaryawan l = new Loginkaryawan();
-            this.Hide();
-            l.ShowDialog();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

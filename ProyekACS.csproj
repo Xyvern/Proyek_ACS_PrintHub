@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
+    </Compile>
     <Compile Include="Homekaryawan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     <Compile Include="MenuMasterLayanan.Designer.cs">
       <DependentUpon>MenuMasterLayanan.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuUserAddons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuUserAddons.Designer.cs">
+      <DependentUpon>MenuUserAddons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registeruser.cs">
@@ -111,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="History.resx">
+      <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Homekaryawan.resx">
       <DependentUpon>Homekaryawan.cs</DependentUpon>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuMasterLayanan.resx">
       <DependentUpon>MenuMasterLayanan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuUserAddons.resx">
+      <DependentUpon>MenuUserAddons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

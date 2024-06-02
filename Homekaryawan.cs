@@ -14,6 +14,7 @@ namespace ProyekACS
     public partial class Homekaryawan : Form
     {
         string username;
+        string nourut;
         public Homekaryawan(string username)
         {
             this.username = username;
@@ -60,11 +61,21 @@ namespace ProyekACS
             DB.openConnection();
             cmd = new SqlCommand("select sum(l.harga) from Dtrans dt join Layanan l on l.idLayanan = dt.idLayanan where dt.nourut = @nourut", DB.conn);
             cmd.Parameters.Add(new SqlParameter("@nourut", nourut));
-            txtSubtotal.Text = "Subtotal Layanan: Rp."+ cmd.ExecuteScalar().ToString();
-            cmd = new SqlCommand("select sum(a.harga) from Daddon da join Addons a on a.idAddon = da.idAddon join Dtrans dt on dt.id = da.dtransid where dt.nourut = @nourut", DB.conn);
+            int subtotal = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            cmd = new SqlCommand("SELECT COALESCE(SUM(a.harga), 0) FROM Daddon da JOIN Addons a ON a.idAddon = da.idAddon JOIN Dtrans dt ON dt.id = da.dtransid WHERE dt.nourut = @nourut;", DB.conn);
             cmd.Parameters.Add(new SqlParameter("@nourut", nourut));
-            txtAddons.Text = "Subtotal Add Ons: Rp." + cmd.ExecuteScalar().ToString();
+            int addons = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            cmd = new SqlCommand("select total from htrans where nourut = @nourut", DB.conn);
+            cmd.Parameters.Add(new SqlParameter("@nourut", nourut));
+            int grandtotal = Convert.ToInt32(cmd.ExecuteScalar().ToString());
             DB.closeConnection();
+
+            txtNota.Text = "Nomor Urut: " + nourut;
+            this.nourut = nourut;
+            btnAccept.Enabled = true;
+            txtSubtotal.Text = "Subtotal Layanan: Rp." + subtotal.ToString();
+            txtAddons.Text = "Subtotal Add Ons: Rp." + addons.ToString();
+            txtGrandtotal.Text = "Grandotal: Rp." + grandtotal.ToString();
         }
 
         void refreshAddons(string dtransid)
@@ -78,6 +89,16 @@ namespace ProyekACS
 
             dgvAddon.DataSource = null;
             dgvAddon.DataSource = dtTable;
+        }
+        void clearDGV()
+        {
+            dgvAddon.Columns.Clear();
+            dgvDetail.Columns.Clear();
+            txtNota.Text = "Nomor Urut: ";
+            txtAddons.Text = "Subtotal Add Ons: ";
+            txtGrandtotal.Text = "Grandtotal: ";
+            txtSubtotal.Text = "Subtotal Layanan: ";
+            btnAccept.Enabled = false;
         }
 
         private void dgvNota_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -95,6 +116,24 @@ namespace ProyekACS
             Loginkaryawan f = new Loginkaryawan();
             this.Hide();
             f.ShowDialog();
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            DB.openConnection();
+            SqlCommand cmd = new SqlCommand("update htrans set status = 2, karyawan = @username where nourut = @nourut", DB.conn);
+            cmd.Parameters.Add(new SqlParameter("@nourut", nourut));
+            cmd.Parameters.Add(new SqlParameter("@username", username));
+            cmd.ExecuteScalar();
+            DB.closeConnection();
+            loadDGV();
+            clearDGV();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            History h = new History();
+            h.ShowDialog();
         }
     }
 }
