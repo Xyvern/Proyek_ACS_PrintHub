@@ -113,9 +113,13 @@ namespace ProyekACS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Loginkaryawan f = new Loginkaryawan();
-            this.Hide();
-            f.ShowDialog();
+            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
+            {
+                Loginkaryawan f = new Loginkaryawan();
+                this.Hide();
+                f.ShowDialog();
+            }
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -128,12 +132,30 @@ namespace ProyekACS
             DB.closeConnection();
             loadDGV();
             clearDGV();
+            MessageBox.Show("Berhasil menyelesaikan transaksi");
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
             History h = new History();
             h.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmation = MessageBox.Show("Aksi ini akan menghapus semua nota yang tidak valid dan tidak dapat dikembalikan. Apakah anda yakin ingin menghapus?", "Confirmation", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
+            {
+                DB.openConnection();
+                SqlCommand cmd = new SqlCommand("delete from Daddon where Daddon.dtransid in (select da.dtransid from Daddon da where da.dtransid in (select dt.id from Dtrans dt where dt.nourut in (select ht.nourut from Htrans ht where status = 0)))", DB.conn);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("delete from Dtrans where Dtrans.nourut in (select ht.nourut from Htrans ht where status = 0)", DB.conn);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("delete from Htrans where status = 0", DB.conn);
+                cmd.ExecuteNonQuery();
+                DB.closeConnection();
+                MessageBox.Show("Berhasil menghapus nota tidak valid.");
+            }
         }
     }
 }

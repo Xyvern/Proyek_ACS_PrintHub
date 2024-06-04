@@ -29,9 +29,13 @@ namespace ProyekACS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Loginkaryawan f = new Loginkaryawan();
-            this.Hide();
-            f.ShowDialog();
+            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
+            {
+                Loginkaryawan f = new Loginkaryawan();
+                this.Hide();
+                f.ShowDialog();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

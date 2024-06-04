@@ -52,6 +52,7 @@
             // 
             this.passLogin.Location = new System.Drawing.Point(434, 292);
             this.passLogin.Name = "passLogin";
+            this.passLogin.PasswordChar = '*';
             this.passLogin.Size = new System.Drawing.Size(238, 20);
             this.passLogin.TabIndex = 19;
             // 

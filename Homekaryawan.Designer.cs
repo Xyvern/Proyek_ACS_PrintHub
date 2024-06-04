@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnHistory = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).BeginInit();
@@ -104,7 +105,7 @@
             this.dgvNota.Location = new System.Drawing.Point(15, 93);
             this.dgvNota.Name = "dgvNota";
             this.dgvNota.ReadOnly = true;
-            this.dgvNota.Size = new System.Drawing.Size(157, 432);
+            this.dgvNota.Size = new System.Drawing.Size(157, 382);
             this.dgvNota.TabIndex = 13;
             this.dgvNota.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNota_CellClick);
             // 
@@ -182,7 +183,7 @@
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(420, 44);
             this.btnAccept.TabIndex = 20;
-            this.btnAccept.Text = "ACCEPT TRANSACTION";
+            this.btnAccept.Text = "SELESAIKAN TRANSAKSI";
             this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
@@ -228,11 +229,24 @@
             this.btnHistory.UseVisualStyleBackColor = false;
             this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LightCoral;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(15, 481);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(157, 44);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "HAPUS NOTA TIDAK VALID";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Homekaryawan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 537);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -279,5 +293,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -25,7 +25,7 @@ namespace ProyekACS
         private void Homeuser_Load(object sender, EventArgs e)
         {
             this.nourut = createNota();
-            txtWelcome.Text = "Welcome, " + username + "("+this.nourut.ToString()+")";
+            txtWelcome.Text = "Welcome, " + username + " ("+this.nourut.ToString()+")";
             loadMaster();
 
             SqlCommand cmd = new SqlCommand("select * from kategori where status = 1", DB.conn);
@@ -56,9 +56,13 @@ namespace ProyekACS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
-            this.Hide();
-            f.ShowDialog();
+            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin logout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
+            {
+                Form1 f = new Form1();
+                this.Hide();
+                f.ShowDialog();
+            }
         }
 
         private void dgvLayanan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -218,29 +222,32 @@ namespace ProyekACS
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvCart.Columns["remove"].Index && e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                int nourut = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                DB.openConnection();
-                SqlCommand cmd = new SqlCommand("delete from daddon where dtransid = @id", DB.conn);
-                cmd.Parameters.Add(new SqlParameter("@id", nourut));
-                cmd.ExecuteNonQuery();
-                
-                cmd = new SqlCommand("delete from dtrans where id = @id", DB.conn);
-                cmd.Parameters.Add(new SqlParameter("@id", nourut));
-                cmd.ExecuteNonQuery();
-                DB.closeConnection();
-                loadMaster();
-            }
-            else if (e.ColumnIndex == dgvCart.Columns["add"].Index && e.RowIndex >= 0)
-            {
-                MenuUserAddons m = new MenuUserAddons(Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["id"].Value.ToString()));
-                m.ShowDialog();
-                loadMaster();
-            }
-            else
-            {
-                refreshAddons(dgvCart.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                if (e.ColumnIndex == dgvCart.Columns["remove"].Index && e.RowIndex >= 0)
+                {
+                    int nourut = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    DB.openConnection();
+                    SqlCommand cmd = new SqlCommand("delete from daddon where dtransid = @id", DB.conn);
+                    cmd.Parameters.Add(new SqlParameter("@id", nourut));
+                    cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("delete from dtrans where id = @id", DB.conn);
+                    cmd.Parameters.Add(new SqlParameter("@id", nourut));
+                    cmd.ExecuteNonQuery();
+                    DB.closeConnection();
+                    loadMaster();
+                }
+                else if (e.ColumnIndex == dgvCart.Columns["add"].Index && e.RowIndex >= 0)
+                {
+                    MenuUserAddons m = new MenuUserAddons(Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["id"].Value.ToString()));
+                    m.ShowDialog();
+                    loadMaster();
+                }
+                else
+                {
+                    refreshAddons(dgvCart.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                }
             }
         }
 
@@ -259,21 +266,24 @@ namespace ProyekACS
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.nourut.ToString());
-            int total = 0;
-            foreach (DataGridViewRow row in dgvCart.Rows)
+            DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin melakukan checkout?", "Confirmation", MessageBoxButtons.YesNo);
+            if (confirmation == DialogResult.Yes)
             {
-                total += Convert.ToInt32(row.Cells["subtotal"].Value.ToString());
+                int total = 0;
+                foreach (DataGridViewRow row in dgvCart.Rows)
+                {
+                    total += Convert.ToInt32(row.Cells["subtotal"].Value.ToString());
+                }
+                SqlCommand cmd = new SqlCommand("update htrans set status = 1, total = @total where nourut = @nourut", DB.conn);
+                cmd.Parameters.Add(new SqlParameter("@nourut", this.nourut));
+                cmd.Parameters.Add(new SqlParameter("@total", total));
+                DB.openConnection();
+                cmd.ExecuteNonQuery();
+                DB.closeConnection();
+                resetAll();
+                this.nourut = createNota();
+                txtWelcome.Text = "Welcome, " + username + " (" + this.nourut.ToString() + ")";
             }
-            SqlCommand cmd = new SqlCommand("update htrans set status = 1, total = @total where nourut = @nourut", DB.conn);
-            cmd.Parameters.Add(new SqlParameter("@nourut", this.nourut));
-            cmd.Parameters.Add(new SqlParameter("@total", total));
-            DB.openConnection();
-            cmd.ExecuteNonQuery();
-            DB.closeConnection();
-            resetAll();
-            this.nourut = createNota();
-            txtWelcome.Text = "Welcome, " + username + "(" + this.nourut.ToString() + ")";
         }
 
         void resetAll()

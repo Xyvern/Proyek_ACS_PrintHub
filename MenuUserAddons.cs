@@ -73,11 +73,12 @@ namespace ProyekACS
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
             buttonColumn.Name = "Add";
             buttonColumn.HeaderText = "Action";
-            buttonColumn.Text = "Add / Remove Add Ons";
+            buttonColumn.Text = "Add / Remove";
             buttonColumn.UseColumnTextForButtonValue = true;
             dgvAddons.Columns.Add(buttonColumn);
 
             dgvAddons.Columns["idAddon"].Visible = false;
+            dgvAddons.Columns["status"].Visible = false;
             dgvAddons.Columns["deskripsi"].Visible = false;
 
             foreach (DataGridViewRow row in dgvAddons.Rows)
