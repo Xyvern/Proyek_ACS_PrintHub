@@ -29,5 +29,11 @@ namespace ProyekACS
             dgvHistory.DataSource = null;
             dgvHistory.DataSource = dtTable;
         }
+
+        private void dgvHistory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            NotaUser nota = new NotaUser(dgvHistory.Rows[e.RowIndex].Cells[0].Value.ToString());
+            nota.ShowDialog();
+        }
     }
 }

@@ -157,5 +157,12 @@ namespace ProyekACS
                 MessageBox.Show("Berhasil menghapus nota tidak valid.");
             }
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            MenuPilihReport f = new MenuPilihReport();
+            this.Hide();
+            f.ShowDialog();
+        }
     }
 }

@@ -280,6 +280,8 @@ namespace ProyekACS
                 DB.openConnection();
                 cmd.ExecuteNonQuery();
                 DB.closeConnection();
+                NotaUser nota = new NotaUser(this.nourut.ToString());
+                nota.ShowDialog();
                 resetAll();
                 this.nourut = createNota();
                 txtWelcome.Text = "Welcome, " + username + " (" + this.nourut.ToString() + ")";

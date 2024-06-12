@@ -40,6 +40,7 @@
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.Size = new System.Drawing.Size(360, 437);
             this.dgvHistory.TabIndex = 0;
+            this.dgvHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellClick);
             // 
             // History
             // 
