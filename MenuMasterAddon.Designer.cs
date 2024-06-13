@@ -202,10 +202,13 @@
             // 
             // dgvMaster
             // 
+            this.dgvMaster.AllowUserToAddRows = false;
+            this.dgvMaster.AllowUserToDeleteRows = false;
             this.dgvMaster.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaster.Location = new System.Drawing.Point(175, 101);
             this.dgvMaster.Name = "dgvMaster";
+            this.dgvMaster.ReadOnly = true;
             this.dgvMaster.Size = new System.Drawing.Size(452, 425);
             this.dgvMaster.TabIndex = 41;
             this.dgvMaster.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaster_CellClick);

@@ -34,10 +34,13 @@
             // 
             // dgvHistory
             // 
+            this.dgvHistory.AllowUserToAddRows = false;
+            this.dgvHistory.AllowUserToDeleteRows = false;
             this.dgvHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistory.Location = new System.Drawing.Point(12, 12);
             this.dgvHistory.Name = "dgvHistory";
+            this.dgvHistory.ReadOnly = true;
             this.dgvHistory.Size = new System.Drawing.Size(360, 437);
             this.dgvHistory.TabIndex = 0;
             this.dgvHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellClick);

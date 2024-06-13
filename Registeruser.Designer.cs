@@ -89,6 +89,7 @@
             // 
             this.passReg.Location = new System.Drawing.Point(434, 248);
             this.passReg.Name = "passReg";
+            this.passReg.PasswordChar = '*';
             this.passReg.Size = new System.Drawing.Size(238, 20);
             this.passReg.TabIndex = 20;
             // 

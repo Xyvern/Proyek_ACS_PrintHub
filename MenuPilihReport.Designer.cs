@@ -31,6 +31,7 @@
             this.btnReport = new System.Windows.Forms.Button();
             this.btnOrderCustomer = new System.Windows.Forms.Button();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnReport
@@ -67,11 +68,24 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(788, 513);
             this.crystalReportViewer1.TabIndex = 29;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.LightCoral;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(12, 481);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(190, 44);
+            this.btnBack.TabIndex = 30;
+            this.btnBack.Text = "BACK";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // MenuPilihReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 537);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.btnOrderCustomer);
             this.Controls.Add(this.btnReport);
@@ -88,5 +102,6 @@
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnOrderCustomer;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Button btnBack;
     }
 }

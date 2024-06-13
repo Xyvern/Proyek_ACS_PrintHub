@@ -68,6 +68,9 @@ namespace ProyekACS
             cmd = new SqlCommand("select total from htrans where nourut = @nourut", DB.conn);
             cmd.Parameters.Add(new SqlParameter("@nourut", nourut));
             int grandtotal = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            cmd = new SqlCommand("select customer from htrans where nourut = @nourut", DB.conn);
+            cmd.Parameters.Add(new SqlParameter("@nourut", nourut));
+            string customer = cmd.ExecuteScalar().ToString();
             DB.closeConnection();
 
             txtNota.Text = "Nomor Urut: " + nourut;
@@ -76,6 +79,7 @@ namespace ProyekACS
             txtSubtotal.Text = "Subtotal Layanan: Rp." + subtotal.ToString();
             txtAddons.Text = "Subtotal Add Ons: Rp." + addons.ToString();
             txtGrandtotal.Text = "Grandotal: Rp." + grandtotal.ToString();
+            txtcustomer.Text = "Customer: " + customer;
         }
 
         void refreshAddons(string dtransid)
@@ -98,6 +102,7 @@ namespace ProyekACS
             txtAddons.Text = "Subtotal Add Ons: ";
             txtGrandtotal.Text = "Grandtotal: ";
             txtSubtotal.Text = "Subtotal Layanan: ";
+            txtcustomer.Text = "Customer: ";
             btnAccept.Enabled = false;
         }
 
@@ -160,7 +165,7 @@ namespace ProyekACS
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            MenuPilihReport f = new MenuPilihReport();
+            MenuPilihReport f = new MenuPilihReport(username);
             this.Hide();
             f.ShowDialog();
         }

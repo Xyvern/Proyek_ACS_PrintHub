@@ -46,6 +46,7 @@
             this.btnHistory = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.txtcustomer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddon)).BeginInit();
@@ -149,7 +150,7 @@
             // 
             this.txtSubtotal.AutoSize = true;
             this.txtSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Location = new System.Drawing.Point(572, 160);
+            this.txtSubtotal.Location = new System.Drawing.Point(572, 214);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(142, 20);
             this.txtSubtotal.TabIndex = 17;
@@ -159,7 +160,7 @@
             // 
             this.txtAddons.AutoSize = true;
             this.txtAddons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddons.Location = new System.Drawing.Point(572, 213);
+            this.txtAddons.Location = new System.Drawing.Point(572, 267);
             this.txtAddons.Name = "txtAddons";
             this.txtAddons.Size = new System.Drawing.Size(143, 20);
             this.txtAddons.TabIndex = 18;
@@ -254,11 +255,22 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // txtcustomer
+            // 
+            this.txtcustomer.AutoSize = true;
+            this.txtcustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcustomer.Location = new System.Drawing.Point(572, 161);
+            this.txtcustomer.Name = "txtcustomer";
+            this.txtcustomer.Size = new System.Drawing.Size(82, 20);
+            this.txtcustomer.TabIndex = 27;
+            this.txtcustomer.Text = "Customer:";
+            // 
             // Homekaryawan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 537);
+            this.Controls.Add(this.txtcustomer);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnHistory);
@@ -309,5 +321,6 @@
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Label txtcustomer;
     }
 }

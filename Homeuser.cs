@@ -84,6 +84,8 @@ namespace ProyekACS
                 cmd.ExecuteNonQuery();
                 DB.closeConnection();
                 loadMaster();
+                txtSearch.Text = "";
+                cbKategori.SelectedIndex = 0;
             }
         }
 
@@ -109,6 +111,15 @@ namespace ProyekACS
                 dgvLayanan.DataSource = null;
                 dgvLayanan.DataSource = dtProduk;
             }
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.Name = "Action";
+            buttonColumn.HeaderText = "Action";
+            buttonColumn.Text = "Add to Cart";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            dgvLayanan.Columns.Add(buttonColumn);
+
+            dgvLayanan.Columns["idLayanan"].Visible = false;
+            dgvLayanan.Columns["deskripsi"].Visible = false;
         }
 
         private void cbKategori_SelectionChangeCommitted(object sender, EventArgs e)
@@ -254,7 +265,7 @@ namespace ProyekACS
         void refreshAddons(string id)
         {
             dgvAddons.Columns.Clear();
-            SqlCommand cmd = new SqlCommand("SELECT l.namaLayanan, a.namaAddon, a.harga FROM Daddon da join Dtrans dt on dt.id = da.dtransid join Addons a on a.idAddon = da.idAddon join Layanan l on l.idLayanan = dt.idLayanan where dt.id = @id", DB.conn);
+            SqlCommand cmd = new SqlCommand("SELECT a.namaAddon, a.harga FROM Daddon da join Dtrans dt on dt.id = da.dtransid join Addons a on a.idAddon = da.idAddon join Layanan l on l.idLayanan = dt.idLayanan where dt.id = @id", DB.conn);
             cmd.Parameters.Add(new SqlParameter("@id", id));
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dtProduk = new DataTable();
@@ -269,22 +280,29 @@ namespace ProyekACS
             DialogResult confirmation = MessageBox.Show("Apakah anda yakin ingin melakukan checkout?", "Confirmation", MessageBoxButtons.YesNo);
             if (confirmation == DialogResult.Yes)
             {
-                int total = 0;
-                foreach (DataGridViewRow row in dgvCart.Rows)
+                if (dgvCart.Rows.Count == 0)
                 {
-                    total += Convert.ToInt32(row.Cells["subtotal"].Value.ToString());
+                    MessageBox.Show("Masukan minimal 1 item terlebih dahulu");
                 }
-                SqlCommand cmd = new SqlCommand("update htrans set status = 1, total = @total where nourut = @nourut", DB.conn);
-                cmd.Parameters.Add(new SqlParameter("@nourut", this.nourut));
-                cmd.Parameters.Add(new SqlParameter("@total", total));
-                DB.openConnection();
-                cmd.ExecuteNonQuery();
-                DB.closeConnection();
-                NotaUser nota = new NotaUser(this.nourut.ToString());
-                nota.ShowDialog();
-                resetAll();
-                this.nourut = createNota();
-                txtWelcome.Text = "Welcome, " + username + " (" + this.nourut.ToString() + ")";
+                else
+                {
+                    int total = 0;
+                    foreach (DataGridViewRow row in dgvCart.Rows)
+                    {
+                        total += Convert.ToInt32(row.Cells["subtotal"].Value.ToString());
+                    }
+                    SqlCommand cmd = new SqlCommand("update htrans set status = 1, total = @total where nourut = @nourut", DB.conn);
+                    cmd.Parameters.Add(new SqlParameter("@nourut", this.nourut));
+                    cmd.Parameters.Add(new SqlParameter("@total", total));
+                    DB.openConnection();
+                    cmd.ExecuteNonQuery();
+                    DB.closeConnection();
+                    NotaUser nota = new NotaUser(this.nourut.ToString());
+                    nota.ShowDialog();
+                    resetAll();
+                    this.nourut = createNota();
+                    txtWelcome.Text = "Welcome, " + username + " (" + this.nourut.ToString() + ")";
+                }
             }
         }
 

@@ -12,9 +12,11 @@ namespace ProyekACS
 {
     public partial class MenuPilihReport : Form
     {
-        public MenuPilihReport()
+        string username;
+        public MenuPilihReport(string username)
         {
             InitializeComponent();
+            this.username = username;
         }
 
         private void MenuPilihReport_Load(object sender, EventArgs e)
@@ -26,6 +28,8 @@ namespace ProyekACS
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            btnReport.BackColor = Color.LightGreen;
+            btnOrderCustomer.BackColor = Color.LightGray;
             DailySalesReport report = new DailySalesReport();
             crystalReportViewer1.ReportSource = null;
             crystalReportViewer1.ReportSource = report;
@@ -33,7 +37,18 @@ namespace ProyekACS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            btnReport.BackColor = Color.LightGray;
+            btnOrderCustomer.BackColor = Color.LightGreen;
+            CustomerOrderReport report = new CustomerOrderReport();
+            crystalReportViewer1.ReportSource = null;
+            crystalReportViewer1.ReportSource = report;
+        }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Homekaryawan h = new Homekaryawan(username);
+            this.Hide();
+            h.Show();
         }
     }
 }
